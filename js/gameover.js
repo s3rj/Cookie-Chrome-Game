@@ -20,6 +20,10 @@ GameOver.prototype = {
 			// this.quitGame();
 		}
 
+		if (this.input.activePointer.duration>400){
+			this.restartGame();
+		}
+
 	},
 
 	showScore: function () {
@@ -56,7 +60,7 @@ GameOver.prototype = {
 
 		this.restart = this.game.add.text(this.game.world.centerX
 			, this.game.world.centerY * 1.5
-			, "Press \n Space to retry ", { font: scoreFont, fill: "#fff" });
+			, "Touch and hold \n or \nPress \n Space to retry ", { font: scoreFont, fill: "#fff" });
 		this.restart.anchor.setTo(0.5, 0.5);
 		this.restart.align = 'center';
 		this.game.world.bringToTop(this.restart);

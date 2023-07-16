@@ -8,6 +8,7 @@ Main.prototype = {
 
 	create: function() {
 
+		scaleRatio = window.devicePixelRatio / 3;
 		this.tileVelocity = -450;
 		this.rate = 1500;
 		score = 0;
@@ -24,7 +25,7 @@ Main.prototype = {
 		this.floor = this.game.add.group();
 		this.floor.enableBody = true;
 		this.floor.createMultiple(Math.ceil(this.game.world.width / this.tileWidth), 'tile');
-
+		
 		this.boxes = this.game.add.group();
 		this.boxes.enableBody = true;
 		this.boxes.createMultiple(20, 'box');
@@ -128,6 +129,9 @@ Main.prototype = {
 		isActive |= (this.game.input.activePointer.justPressed(duration + 1000 / 60) &&
 			this.game.input.activePointer.x > this.game.width / 4 &&
 			this.game.input.activePointer.x < this.game.width / 2 + this.game.width / 4);
+		isActive |= this.input.activePointer.isDown 
+			&& this.input.activePointer.duration<((duration + 2000 / 60)) 
+			&& this.input.activePointer.duration != -1;	
 
 		return isActive;
 	},
@@ -146,7 +150,7 @@ Main.prototype = {
 
 		this.player = this.game.add.sprite(this.game.world.width/5, this.game.world.height -
 			(this.tileHeight*2), 'player');
-		this.player.scale.setTo(4, 4);
+		this.player.scale.setTo(.22, .22  );
 		this.player.anchor.setTo(0.5, 1.0);
 		this.game.physics.arcade.enable(this.player);
 		this.player.body.gravity.y = 2200;
@@ -189,7 +193,7 @@ Main.prototype = {
 		score += 1;
 		this.scoreLabel.setText(score);
 		this.game.world.bringToTop(this.scoreLabel);
-		this.highScore.setText("HS: " + window.localStorage.getItem('HighScore'));
+		this.highScore.setText("Hi-Score: " + window.localStorage.getItem('HighScore'));
 		this.game.world.bringToTop(this.highScore);
 
 

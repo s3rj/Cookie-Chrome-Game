@@ -1,6 +1,6 @@
 # A clone of the classic dinosaur game
 
-Play the game here - [Live demo](https://aveeksaha.gitlab.io/runny/) 
+Play the game here - [Live demo](https://s3rj.com/Cookie-Game/) 
 
 This is the source code for the tutorial - [Making the Chrome dinosaur game with Phaser](https://aveeksaha.gitlab.io/post/chrome-dinosaur-game-tutorial-with-phaser/)
 

@@ -193,7 +193,7 @@ Main.prototype = {
 		score += 1;
 		this.scoreLabel.setText(score);
 		this.game.world.bringToTop(this.scoreLabel);
-		this.highScore.setText("Hi-Score: " + window.localStorage.getItem('HighScore'));
+		this.highScore.setText("🥇" + window.localStorage.getItem('HighScore'));
 		this.game.world.bringToTop(this.highScore);
 
 
